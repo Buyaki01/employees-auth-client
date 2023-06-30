@@ -1,7 +1,7 @@
 # employees-auth-client
 
 ## Overview
-This is the frontend of an employees-auth MERN (MongoDB, Express, React, Node.js) application that allows the employess to access pages on the website based on their roles in the company
+This is the frontend of an employees-auth MERN (MongoDB, Express, React, Node.js) application that allows the employees to access pages on the website based on their roles in the company
 
 ## Technologies Used
 The frontend of the app was built using the following technologies:
@@ -49,4 +49,4 @@ Feel free to check the [issues page](https://github.com/Buyaki01/employees-auth-
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- Inspiration: [Dave Gray](https://github.com/dejwid)
+- Inspiration: [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode)
