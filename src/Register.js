@@ -65,11 +65,18 @@ const Register = () => {
           autoComplete="off"
           onChange={(e) => setUser(e.target.value)}
           required
-          aria-invalid={validName ? "false" : "true"}
-          aria-describedby="uidnote"
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
+          aria-invalid={validName ? "false" : "true"} // Used in conjunction with the validName state variable and the USER_REGEX validation to convey to the screen reader whether the username input is valid or invalid
+          aria-describedby="uidnote" //This attribute points to an element with the ID "uidnote" which likely contains additional information or an error message related to the username input
+          onFocus={() => setUserFocus(true)} // Used to detect when the user focuses on the username input field, and it updates the state variable userFocus to true
+          onBlur={() => setUserFocus(false)} //The onBlur event is a special event that occurs when the user clicks or moves away from the username input field, effectively "blurring" it or losing focus
         />
+
+        <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+          <FontAwesomeIcon icon={faInfoCircle} />
+          4 to 24 characters.<br />
+          Must begin with a letter.<br />
+          Letters, numbers, underscores, hyphens allowed.
+        </p>
       </form>
     </section>
   )
