@@ -1,12 +1,18 @@
+import { Route, Routes } from "react-router"
 import Login from "./components/Login"
-// import Register from "./Register"
+import Register from "./components/Register"
+import Layout from "./components/Layout"
+
 
 function App() {
   return (
-    <div className="App">
-      {/* <Register /> */}
-      <Login />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="linkpage" element={<LinkPage />} />
+      </Route>
+    </Routes>
   )
 }
 
