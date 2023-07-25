@@ -42,7 +42,7 @@ To get started with this app, follow these steps:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Buyaki01/employees-auth-client/issues).
+Feel free to check the [issues page](https://github.com/Buyaki01/employees-auth-client/issues)
 
 ## Show your support
 
