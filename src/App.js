@@ -7,6 +7,7 @@ import Unauthorized from "./components/Unauthorized"
 import Home from "./components/Home"
 import Admin from "./components/Admin"
 import Editor from "./components/Editor"
+import Missing from "./components/Missing"
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="editor" element={<Editor />} />
         <Route path="admin" element={<Admin />} />
         <Route path="lounge" element={<Lounge />} />
+
+        <Route path="*" element={<Missing />} />
       </Route>
     </Routes>
   )
