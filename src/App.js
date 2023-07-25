@@ -16,6 +16,7 @@ function App() {
         <Route path="unauthorized" element={<Unauthorized/>} />
 
         <Route path="/" element={<Home />} />
+        <Route path="editor" element={<Editor />} />
       </Route>
     </Routes>
   )
