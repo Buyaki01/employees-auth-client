@@ -5,6 +5,7 @@ import Layout from "./components/Layout"
 import LinkPage from "./components/LinkPage"
 import Unauthorized from "./components/Unauthorized"
 import Home from "./components/Home"
+import Admin from "./components/Admin"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="editor" element={<Editor />} />
+        <Route path="admin" element={<Admin />} />
       </Route>
     </Routes>
   )
