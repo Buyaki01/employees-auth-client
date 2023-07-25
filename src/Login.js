@@ -1,6 +1,8 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useContext } from "react"
+import AuthContext from "./context/AuthProvider"
 
 const Login = () => {
+  const { setAuth } = useContext(AuthContext)
   const userRef = useRef()
   const errRef = useRef()
 
@@ -20,6 +22,25 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
+    try {
+      const response = await axios.post('/login', 
+        JSON.stringify({user, pwd}),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      )
+      const accessToken = response?.data?.accessToken
+      const roles = response?.data?.roles
+
+      setAuth({ user, pwd, roles, accessToken })
+
+      setUser('')
+      setPwd('')
+      setSuccess(true)
+    } catch (err) {
+      
+    }
   }
 
   return (
