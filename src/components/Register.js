@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react"
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import axios from "../api/axios"
+import { Link } from "react-router-dom"
 
 //requires a string that starts with a letter, followed by a combination of letters, digits, hyphens, and underscores, with a total length between 3 and 23 characters
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/ 
@@ -86,7 +87,7 @@ const Register = () => {
           <section>
             <h1>Success!</h1>
             <p>
-              <a href="#">Sign In</a>
+              <Link to={'/login'}>Sign In</Link>
             </p>
           </section>
         ) : 

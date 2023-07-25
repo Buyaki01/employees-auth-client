@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useContext } from "react"
 import AuthContext from "../context/AuthProvider"
 import axios from "../api/axios"
+import { Link } from "react-router-dom"
 
 const Login = () => {
   const { setAuth } = useContext(AuthContext)
@@ -24,7 +25,7 @@ const Login = () => {
     e.preventDefault()
     
     try {
-      const response = await axios.post('/login', 
+      const response = await axios.post('/auth', 
         JSON.stringify({user, pwd}),
         {
           headers: { 'Content-Type': 'application/json' },
@@ -102,7 +103,7 @@ const Login = () => {
           <p>
             Need an Account? <br />
             <span className="line">
-              <a href="#">Sign Up</a>
+              <Link to={"/register"}>Sign Up</Link>
             </span>
           </p>
         </section>
