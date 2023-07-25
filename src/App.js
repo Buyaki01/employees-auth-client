@@ -8,6 +8,7 @@ import Home from "./components/Home"
 import Admin from "./components/Admin"
 import Editor from "./components/Editor"
 import Missing from "./components/Missing"
+import Lounge from "./components/Lounge"
 
 function App() {
   return (
