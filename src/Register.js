@@ -64,6 +64,7 @@ const Register = () => {
           withCredentials: true
         }
       )
+      
       setSuccess(true)
       //clear input fields
     } catch (err) {
