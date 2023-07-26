@@ -9,6 +9,7 @@ import Admin from "./components/Admin"
 import Editor from "./components/Editor"
 import Missing from "./components/Missing"
 import Lounge from "./components/Lounge"
+import RequireAuth from "./components/RequireLogin"
 
 function App() {
   return (
@@ -18,11 +19,13 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized/>} />
-
-        <Route path="/" element={<Home />} />
-        <Route path="editor" element={<Editor />} />
-        <Route path="admin" element={<Admin />} />
-        <Route path="lounge" element={<Lounge />} />
+        
+        <Route element={<RequireAuth />}>
+          <Route path="/" element={<Home />} />
+          <Route path="editor" element={<Editor />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="lounge" element={<Lounge />} />
+        </Route>
 
         <Route path="*" element={<Missing />} />
       </Route>
