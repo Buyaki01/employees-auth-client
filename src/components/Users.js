@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import axios from "../api/axios"
+import useAxiosPrivate from "../hooks/useAxiosPrivate"
 
 const Users = () => {
   const [users, setUsers] = useState()
+
+  const axiosPrivate = useAxiosPrivate()
 
   useEffect(() => {
     let isMounted = true
@@ -11,7 +13,7 @@ const Users = () => {
 
     const getUsers = async () => {
       try {
-        const response = await axios.get('/users', {
+        const response = await axiosPrivate.get('/users', {
           signal: controller.signal
         })
         isMounted && setUsers(response.data)
