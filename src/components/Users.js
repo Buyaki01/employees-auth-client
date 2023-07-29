@@ -5,10 +5,10 @@ import { useNavigate, useLocation } from "react-router-dom"
 const Users = () => {
   const [users, setUsers] = useState()
 
+  const axiosPrivate = useAxiosPrivate()
+
   const navigate = useNavigate()
   const location = useLocation()
-
-  const axiosPrivate = useAxiosPrivate()
 
   useEffect(() => {
     let isMounted = true
@@ -20,10 +20,14 @@ const Users = () => {
         const response = await axiosPrivate.get('/users', {
           signal: controller.signal
         })
-        isMounted && setUsers(response.data)
+        if (isMounted) {
+          setUsers(response.data)
+        }
       } catch (err) {
-        console.error(err)
-        navigate('/login', { state: { from: location }, replace: true })
+        if (err.name !== "CanceledError") {
+          console.error(err)
+          navigate('/login', { state: { from: location }, replace: true })
+        }
       }
     }
 
