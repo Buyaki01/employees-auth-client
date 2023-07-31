@@ -10,6 +10,7 @@ import Editor from "./components/Editor"
 import Missing from "./components/Missing"
 import Lounge from "./components/Lounge"
 import RequireAuth from "./components/RequireAuth"
+import PersistLogin from "./components/PersistLogin"
 
 function App() {
   return (
@@ -20,20 +21,23 @@ function App() {
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized/>} />
         
-        <Route element={<RequireAuth allowedRoles={[2001]} />}>
-          <Route path="/" element={<Home />} />
-        </Route>
+        {/* Protected Routes */}
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth allowedRoles={[2001]} />}>
+            <Route path="/" element={<Home />} />
+          </Route>
 
-        <Route element={<RequireAuth allowedRoles={[1984]} />}>
-          <Route path="editor" element={<Editor />} />
-        </Route>
+          <Route element={<RequireAuth allowedRoles={[1984]} />}>
+            <Route path="editor" element={<Editor />} />
+          </Route>
 
-        <Route element={<RequireAuth allowedRoles={[5150]} />}>
-          <Route path="admin" element={<Admin />} />
-        </Route>
+          <Route element={<RequireAuth allowedRoles={[5150]} />}>
+            <Route path="admin" element={<Admin />} />
+          </Route>
 
-        <Route element={<RequireAuth allowedRoles={[1984, 5150]} />}>
-          <Route path="lounge" element={<Lounge />} />
+          <Route element={<RequireAuth allowedRoles={[1984, 5150]} />}>
+            <Route path="lounge" element={<Lounge />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<Missing />} />
