@@ -40,9 +40,8 @@ const Login = () => {
         }
       )
       const accessToken = response?.data?.accessToken
-      const roles = response?.data?.roles
 
-      setAuth({ user, roles, accessToken })
+      setAuth({ user, accessToken })
 
       // setUser('')
       resetUser()
