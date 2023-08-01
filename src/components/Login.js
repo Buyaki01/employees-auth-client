@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom"
 import useInput from "../hooks/useInput"
 import useToggle from "../hooks/useToggle"
 import axios from "../api/axios"
+import LoginAuth0 from "./LoginAuth0"
 
 const Login = () => {
   const { setAuth } = useAuth()
@@ -113,6 +114,8 @@ const Login = () => {
           <Link to={"/register"}>Sign Up</Link>
         </span>
       </p>
+
+      <LoginAuth0 />
     </section>
   )
 }

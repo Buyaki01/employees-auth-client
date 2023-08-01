@@ -6,7 +6,7 @@ const LoginAuth0 = () => {
   return (
     !isAuthenticated && (
       <button onClick={() => loginWithRedirect()}>
-        Sign In
+        Continue with Google
       </button>
     )
   )
