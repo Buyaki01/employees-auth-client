@@ -2,10 +2,11 @@ import { useRef, useState, useEffect } from "react"
 import useAuth from "../hooks/useAuth"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import useInput from "../hooks/useInput"
+import useToggle from "../hooks/useToggle"
 import axios from "../api/axios"
 
 const Login = () => {
-  const { setAuth, persist, setPersist } = useAuth()
+  const { setAuth } = useAuth()
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -17,6 +18,7 @@ const Login = () => {
   const [user, resetUser, userAttribute] = useInput('user', '')
   const [pwd, setPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
+  const [check, toggleCheck] = useToggle('persist', false)
 
   useEffect(() => {
     userRef.current.focus()
@@ -60,14 +62,6 @@ const Login = () => {
     }
   }
 
-  const togglePersist = () => {
-    setPersist(prev => !prev )
-  }
-
-  useEffect(() => {
-    localStorage.setItem("persist", persist)
-  }, [persist])
-
   return (
     <section>
       <p 
@@ -106,8 +100,8 @@ const Login = () => {
           <input 
             type="checkbox" 
             id="persist"
-            onChange={togglePersist}
-            checked={persist}
+            onChange={toggleCheck}
+            checked={check}
           />
 
           <label htmlFor="persist">Remain Signed In</label>
