@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react"
 import useAuth from "../hooks/useAuth"
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import useLocalStorage from "../hooks/useLocalStorage"
+import useInput from "../hooks/useInput"
 import axios from "../api/axios"
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
   const userRef = useRef()
   const errRef = useRef()
 
-  const [user, setUser] = useLocalStorage('user', '') //useState('')
+  const [user, resetUser, userAttribute] = useInput('user', '')
   const [pwd, setPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
 
@@ -40,9 +40,10 @@ const Login = () => {
       const accessToken = response?.data?.accessToken
       const roles = response?.data?.roles
 
-      setAuth({ user, pwd, roles, accessToken })
+      setAuth({ user, roles, accessToken })
 
-      setUser('')
+      // setUser('')
+      resetUser()
       setPwd('')
       navigate(from, { replace: true })
     } catch (err) {
@@ -86,8 +87,7 @@ const Login = () => {
           id="username"
           ref={userRef}
           autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          { ...userAttribute }
           required
         />
 
