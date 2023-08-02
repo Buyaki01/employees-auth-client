@@ -11,6 +11,7 @@ import Missing from "./components/Missing"
 import Lounge from "./components/Lounge"
 import RequireAuth from "./components/RequireAuth"
 import PersistLogin from "./components/PersistLogin"
+import Profile from "./components/Profile"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized/>} />
         
